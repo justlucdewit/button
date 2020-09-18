@@ -18,6 +18,9 @@ const settings = {
 	lbCount: 20
 }
 
+// pool.query("UPDATE leaderboard SET score = 3000 WHERE username = 'Luke'")
+// pool.query("DELETE FROM leaderboard WHERE username = 'Get sql injected'")
+
 pool.query('SELECT * FROM leaderboard;', (err, res) => {
 	let state = {start: 0, scores: res.rows};
 	pool.query('SELECT * FROM state;', (err, res) => {
@@ -89,20 +92,19 @@ pool.query('SELECT * FROM leaderboard;', (err, res) => {
 			state.start = Math.floor(new Date().getTime() / 1000);
 			pool.query(`UPDATE state SET start = ${state.start}`)
 
-			// to little score, nothing changes
-			if (state.scores.find(e => e.username === name).score > score) {
-				return;
-			}
-
-			console.log(`${name} now has ${score} points`);
 			if (!state.scores.find(e => e.username === name)) { // new person
 				state.scores.push({username: name, score:score})
 				console.log(state);
 				pool.query(`INSERT INTO leaderboard VALUES ('${name}', ${score});`);
 			} else { // old person
+				// to little score, nothing changes
+				if (state.scores.find(e => e.username === name).score > score) {
+					return;
+				}
 				state.scores = state.scores.map((e) => e.username === name ? {username: e.username, score: score} : e);
 				pool.query(`UPDATE leaderboard SET score = ${score} WHERE username = '${name}'`);
 			}
+			console.log(`${name} now has ${score} points`);
 
 			ctx.body = "success";
 			next();
