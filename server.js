@@ -82,6 +82,7 @@ pool.query('SELECT * FROM leaderboard;', (err, res) => {
 		// API route to press the button
 		router.get("/api/press/:name", (ctx, next) => {
 			const name = ctx.params.name;
+			console.log(`name input: ${name}`);
 			
 			if (name.length > 20) {
 				return;
