@@ -64,21 +64,6 @@ pool.query('SELECT * FROM leaderboard;', (err, res) => {
 			next();
 		});
 
-		// API route to remove a person out of the game
-		router.get("api/remove/:name/:password", ctx => {
-			if (ctx.params.password === process.env.adminpass) {
-				if (state.scores[name]) {
-					delete state.scores[name];
-					api.updateBin({
-						id: "5f630d16302a837e9567ebf6",
-						data: state,
-						versioning: false
-					});
-				}
-			}
-			next();
-		});
-
 		// API route to press the button
 		router.get("/api/press/:name", (ctx, next) => {
 			const name = ctx.params.name;
@@ -105,7 +90,7 @@ pool.query('SELECT * FROM leaderboard;', (err, res) => {
 			pool.query(`UPDATE state SET start = ${state.start}`)
 
 			// to little score, nothing changes
-			if (state.scores[name] > score) {
+			if (state.scores.find(e => e.username === name).score > score) {
 				return;
 			}
 
