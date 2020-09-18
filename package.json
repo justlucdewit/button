@@ -1,0 +1,21 @@
+{
+  "name": "the-button",
+  "version": "1.0.0",
+  "description": "a button press web game",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "jsonbin-io-api": "^1.0.2",
+    "koa": "^2.13.0",
+    "koa-router": "^9.4.0",
+    "pg": "^8.3.3",
+    "prompt-sync": "^4.2.0",
+    "ws": "^7.3.1"
+  }
+}

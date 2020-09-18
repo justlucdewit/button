@@ -1,0 +1,62 @@
+#time {
+	visibility: hidden;
+}
+
+#top {
+	padding-top: 10px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	margin-top: -22px;
+	background: #BBE1FA;
+	overflow-x: hidden;
+}
+
+#game {
+	padding: 10px;
+	margin-top: 40px;
+	text-align: center;
+}
+
+input {
+	padding: 5px;
+	font-size: large;
+}
+
+label {
+	font-size: x-large;
+	margin-right: 15px;
+}
+
+table {
+	width: 100px;
+	margin-left: calc(50vw - 100px)
+}
+
+header {
+	background: #1b262c;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	transform: rotate(-10deg);
+	width: 200%;
+	padding-top: 447px;
+	margin-top: -412px;
+	margin-left: -62%;
+}
+
+button {
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
+	margin-top: 10px;
+	font-weight: bolder;
+	margin-right: 30px;
+}
+
+#time {
+	font-size: xx-large;
+	vertical-align: middle;
+}
