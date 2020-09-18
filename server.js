@@ -20,6 +20,7 @@ const settings = {
 
 // pool.query("UPDATE leaderboard SET score = 3000 WHERE username = 'Luke'")
 // pool.query("DELETE FROM leaderboard WHERE username = 'Get sql injected'")
+// pool.query("INSERT INTO leaderboard VALUES ('monad', 3500)")
 
 pool.query('SELECT * FROM leaderboard;', (err, res) => {
 	let state = {start: 0, scores: res.rows};
