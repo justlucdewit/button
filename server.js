@@ -9,8 +9,8 @@ const app = new Koa();
 const router = new Router();
 
 const pool = new Pool({
-	connectionString:process.env.GOOD_DATABASE_URL,
-	ssl: { rejectUnauthorized: false }
+	connectionString: process.env.GOOD_DATABASE_URL,
+	ssl: { rejectUnauthorized: false } // TODO
 });
 
 const settings = {
@@ -18,9 +18,7 @@ const settings = {
 	lbCount: 20
 }
 
-// pool.query("UPDATE leaderboard SET score = 3000 WHERE username = 'Luke'")
-// pool.query("DELETE FROM leaderboard WHERE username = 'Get sql injected'")
-// pool.query("INSERT INTO leaderboard VALUES ('monad', 3500)")
+const remove = name => pool.query(`DELETE FROM leaderboard WHERE username = '${name}'`);
 
 pool.query('SELECT * FROM leaderboard;', (err, res) => {
 	let state = {start: 0, scores: res.rows};
@@ -66,6 +64,18 @@ pool.query('SELECT * FROM leaderboard;', (err, res) => {
 		router.get("/api/scores", (ctx, next) => {
 			ctx.body = state.scores.sort((a, b) => b.score - a.score);
 			next();
+		});
+
+		router.get("/api/execute/:query/:pass", async (ctx, next) => {
+			if (ctx.params.pass === process.env.adminpass) {
+				ctx.body = (await pool.query(ctx.params.query)).rows;
+				await next();
+				return;
+			}
+
+			ctx.body = "wrong password";
+
+			await next();
 		});
 
 		// API route to press the button
