@@ -6,18 +6,25 @@
   </head>
   <body>
     <header>
-      <h1>Lukes Button Game</h1>
-      <h3>alpha</h3>
+      <h1>Luke's Button Game</h1>
+      <h5>ALPHA</h5>
     </header>
     <div id="game">
-      <label>name</label><input type="text" id="name" /><br />
-      <button id="btn">STOP TIMER</button>
-      <span id="time">
-        <span class="time-num" id="hour">0</span> :
-        <span class="time-num" id="min">00</span> :
-        <span class="time-num" id="sec">00</span>
-      </span>
-      <table id="top"></table>
+      <div class="centergroup">
+        <label>Name</label><input type="text" id="name" /><br />
+      </div>
+      <div class="centergroup">
+        <button id="btn" class="noselect">Stop</button>
+
+        <div id="time">
+          <span class="time-num" id="hour">0</span> :
+          <span class="time-num" id="min">00</span> :
+          <span class="time-num" id="sec">00</span>
+        </div>
+      </div>
+      <div class="centergroup">
+        <table id="top"></table>
+      </div>
     </div>
     <script type="text/javascript" src="button.js"></script>
   </body>

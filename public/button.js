@@ -15,7 +15,7 @@ const updateScoreBoard = () => {
   fetch("/api/scores").then((res) =>
     res.json().then((data) => {
       const top = document.getElementById("top");
-      top.innerHTML = "<tr><th>place</th><th>name</th><th>seconds</th></tr>";
+      top.innerHTML = "<tr><th>Place</th><th>Name</th><th>Seconds</th></tr>";
       data.forEach((e, i) => {
         top.innerHTML += `<tr><td>${i + 1}</td><td>${e.username}</td><td>${
           e.score
