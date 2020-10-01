@@ -8,6 +8,7 @@ const Router = require("koa-router");
 const app = new Koa();
 const router = new Router();
 
+// create a new pool
 const pool = new Pool({
 	connectionString: process.env.GOOD_DATABASE_URL,
 	ssl: { rejectUnauthorized: false } // TODO
@@ -18,6 +19,7 @@ const settings = {
 	lbCount: 20
 }
 
+// remove username from leaderboard
 const remove = name => pool.query(`DELETE FROM leaderboard WHERE username = '${name}'`);
 
 pool.query('SELECT * FROM leaderboard;', (err, res) => {
