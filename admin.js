@@ -1,10 +1,12 @@
 const prompt = require("prompt-sync")();
 
 const jsonbinioapi = require("jsonbin-io-api");
+
 const api = new jsonbinioapi(
   "$2b$10$QLT4jsyLtuPi4gua3QeR2e88eXu7SQHXDuhzZDlyEyrs04FNF9koa"
 );
 
+// start
 const start = async () => {
   while (true) {
     let command = prompt(">> ");
@@ -42,6 +44,7 @@ const list = async () => {
     .then((data) => console.log(data));
 };
 
+// update score
 const set = async (name, amount) => {
   data = await api.readBin({
     id: "5f630d16302a837e9567ebf6",
@@ -61,11 +64,13 @@ const set = async (name, amount) => {
   }
 };
 
+// delete score
 const remove = async (name) => {
   data = await api.readBin({
     id: "5f630d16302a837e9567ebf6",
     version: "latest",
   });
+
 
   if (data.scores[name]) {
     delete data.scores[name];
@@ -82,6 +87,5 @@ const remove = async (name) => {
 	await api.updateBin({
 		
 	});*/
-};
 
 start();
