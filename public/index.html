@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>The Button</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-	</head>
-	<body>
-		<header>
-			<h1>Lukes Button Game</h1>
-			<h3>alpha</h3>
-		</header>
-		<div id="game">
-			<label>name</label><input type="text" id="name"/><br />
-			<button id="btn">STOP TIMER</button>
-			<span id="time">
-				<span class="time-num" id="hour">0</span> :
-				<span class="time-num" id="min">00</span> :
-				<span class="time-num" id="sec">00</span>
-			</span>
-			<table id="top">
-			</table>
-		</div>
-		<script type="text/javascript" src="button.js"></script>
-	</body>
+  <head>
+    <title>The Button</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="http://d1ujqdpfgkvqfi.cloudfront.net/favicon-generator/htdocs/favicons/2015-01-01/c75d56fa948294c89a0a650f88c9714d.ico"
+    />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Luke's Button Game</h1>
+      <h5>ALPHA</h5>
+    </header>
+    <div id="game">
+      <div class="centergroup">
+        <label>Name</label><input type="text" id="name" /><br />
+      </div>
+      <div class="centergroup">
+        <button id="btn" class="noselect">Stop</button>
+
+        <div id="time">
+          <span class="time-num" id="hour">0</span> :
+          <span class="time-num" id="min">00</span> :
+          <span class="time-num" id="sec">00</span>
+        </div>
+      </div>
+      <div class="centergroup">
+        <table id="top"></table>
+      </div>
+    </div>
+    <script type="text/javascript" src="button.js"></script>
+  </body>
 </html>
