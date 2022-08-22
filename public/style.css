@@ -30,8 +30,13 @@ label {
 }
 
 table {
-  width: 100px;
+  width: auto;
   margin-left: calc(50vw - 130px);
+  white-space: nowrap;
+}
+
+td, th {
+  padding: 0px 30px 0 0;
 }
 
 header {
