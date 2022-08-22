@@ -29,14 +29,25 @@ label {
   margin-right: 15px;
 }
 
+.tableWrapper {
+  width: 100%;
+}
+
 table {
-  width: auto;
-  margin-left: calc(50vw - 130px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* width: 100%; */
+  /* margin-left: calc(50vw); */
   white-space: nowrap;
 }
 
 td, th {
-  padding: 0px 30px 0 0 ;
+  padding: 0px 0px 0 30px;
+}
+
+td:first-child, th:first-child {
+  padding: 0px 0px 0 0;
 }
 
 header {
