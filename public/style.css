@@ -43,11 +43,11 @@ table {
 }
 
 td, th {
-  padding: 0px 0px 0 30px;
+  padding: 0 0 0 30px;
 }
 
 td:first-child, th:first-child {
-  padding: 0px 0px 0 0;
+  padding: 0 0 0 0;
 }
 
 header {
