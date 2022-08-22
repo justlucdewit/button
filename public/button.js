@@ -19,7 +19,7 @@ const secondsToDhms = (seconds=0) => {
   const s = Math.floor(seconds % 60);
   
   return `${d}d ${h}h ${m}m ${s}s`;
-  }
+}
 
 const updateScoreBoard = () => {
   fetch("/api/scores").then((res) =>
