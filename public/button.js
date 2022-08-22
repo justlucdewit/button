@@ -11,6 +11,16 @@ const retrieveStart = () => {
   );
 };
 
+const secondsToDhms = (seconds=0) => {
+  seconds = Number(seconds);
+  const d = Math.floor(seconds / (3600*24));
+  const h = Math.floor(seconds % (3600*24) / 3600);
+  const m = Math.floor(seconds % 3600 / 60);
+  const s = Math.floor(seconds % 60);
+  
+  return `${d}d ${h}h ${m}m ${s}s`;
+  }
+
 const updateScoreBoard = () => {
   fetch("/api/scores").then((res) =>
     res.json().then((data) => {
@@ -18,7 +28,7 @@ const updateScoreBoard = () => {
       top.innerHTML = "<tr><th>Place</th><th>Name</th><th>Seconds</th></tr>";
       data.forEach((e, i) => {
         top.innerHTML += `<tr><td>${i + 1}</td><td>${e.username}</td><td>${
-          e.score
+          secondsToDhms(Number(e.score))
         }</td></tr>`;
       });
     })
