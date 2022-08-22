@@ -40,11 +40,13 @@ const updateTimer = () => {
     const delta = Math.floor(new Date().getTime() / 1000) - start;
     const sec = delta % 60;
     const min = Math.floor((delta / 60) % 60);
-    const hour = Math.floor(delta / 3600);
+    const hour = Math.floor((delta / 3600) % 3600);
+    const days = Math.floor(delta/(3600 * 24))
 
     document.getElementById("sec").innerText = sec < 10 ? "0" + sec : sec;
     document.getElementById("min").innerText = min < 10 ? "0" + min : min;
-    document.getElementById("hour").innerText = hour;
+    document.getElementById("hour").innerText = hour < 10 ? "0" + hour : hour;
+    document.getElementById("days").innerText = days < 10 ? "0" + days : days;
     document.getElementById("time").style.visibility = "visible";
   }, 500);
 };
