@@ -41,7 +41,7 @@ const updateTimer = () => {
     const sec = delta % 60;
     const min = Math.floor((delta / 60) % 60);
     const hour = Math.floor((delta / 3600) % 3600);
-    const days = Math.floor(delta/(3600 * 24))
+    const days = Math.floor(delta / (3600 * 24));
 
     document.getElementById("sec").innerText = sec < 10 ? "0" + sec : sec;
     document.getElementById("min").innerText = min < 10 ? "0" + min : min;
