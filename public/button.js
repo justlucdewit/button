@@ -25,7 +25,7 @@ const updateScoreBoard = () => {
   fetch("/api/scores").then((res) =>
     res.json().then((data) => {
       const top = document.getElementById("top");
-      top.innerHTML = "<tr><th>Place</th><th>Name</th><th>Seconds</th></tr>";
+      top.innerHTML = "<tr><th>Place</th><th>Name</th><th>Time</th></tr>";
       data.forEach((e, i) => {
         top.innerHTML += `<tr><td>${i + 1}</td><td>${e.username}</td><td>${
           secondsToDhms(Number(e.score))
